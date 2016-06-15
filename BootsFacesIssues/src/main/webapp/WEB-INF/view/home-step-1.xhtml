@@ -1,0 +1,22 @@
+<ui:fragment 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:b="http://bootsfaces.net/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h1>HOME-STEP-1</h1>
+
+    <h:form>
+        <b:panelGrid colSpans="2,10">
+            <h:outputLabel value="Name" />
+            <b:inputText span="8" value="" />
+
+            <h:outputLabel value="Description" />
+            <b:inputTextarea span="8" value="" />
+
+            <b:commandButton value="Create Instance" onclick="ajax:contentBacking.setContent('home-step-2')" action="#{dummyBacking.action()}" update="navBar content" ajax="true" look="primary" />
+        </b:panelGrid>
+    </h:form>
+
+</ui:fragment>

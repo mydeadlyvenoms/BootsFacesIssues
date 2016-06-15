@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>BootsFaces Issues</title>
+    </h:head>
+
+    <h:body>
+        <h:outputScript library="omnifaces" name="fixviewstate.js" target="head" />
+
+        <b:navBar id="navBar" fixed="top">
+            <h:form>
+                <b:navbarLinks>
+                    <b:navLink value="Home" icon="home" iconAlign="left" onclick="ajax:contentBacking.setContent('home-step-0')" update="content" />
+                    <b:navLink value="About" iconAwesome="building-o" iconAlign="left" onclick="ajax:contentBacking.setContent('about')" update="content" />
+                </b:navbarLinks>
+            </h:form>
+        </b:navBar>
+
+        <h:panelGroup id="content">
+            <ui:include src="/WEB-INF/view/#{contentBacking.content}.xhtml" />
+        </h:panelGroup>
+
+        <footer class="footer text-center">
+            <p>
+                <h:outputText value="#{now}">
+                    <f:convertDateTime pattern="yyyy" type="date" />
+                </h:outputText>
+                #{' '}
+                <b:iconAwesome name="copyright" /> Footer</p>
+        </footer>
+
+        <ui:include src="/WEB-INF/components.xhtml" />
+    </h:body>
+
+</html>
